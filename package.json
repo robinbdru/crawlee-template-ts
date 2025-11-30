@@ -1,0 +1,33 @@
+{
+    "name": "crawlee-template-ts",
+    "version": "0.0.1",
+    "type": "module",
+    "dependencies": {
+        "crawlee": "^3.0.0",
+        "dotenv": "^17.2.3",
+        "playwright": "^1.57.0"
+    },
+    "devDependencies": {
+        "@apify/tsconfig": "^0.1.0",
+        "@types/node": "^24.0.0",
+        "tsx": "^4.4.0",
+        "typescript": "~5.9.0"
+    },
+    "scripts": {
+        "start": "npm run start:dev",
+        "start:prod": "node dist/main.js",
+        "start:dev": "tsx src/main.ts",
+        "build": "tsc",
+        "test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1",
+        "crawler:new": "./bash/crawlers/createNewCrawler.sh",
+        "crawler:install-playwright": "./bash/crawlers/installPlaywrightFirefox.sh",
+        "scripts:allow": "chmod +x ./bash/s3/upload.sh && chmod +x ./bash/s3/list.sh && chmod +x ./bash/s3/status.sh && chmod +x ./bash/s3/download.sh && chmod +x ./bash/crawlers/createNewCrawler.sh && chmod +x ./bash/crawlers/installPlaywrightFirefox.sh && echo 'All scripts are now executable!'"
+    },
+    "aliases": {
+        "#utils": "./src/utils",
+        "#actors": "./src/actors",
+        "#schemas": "./src/schemas",
+        "#types": "./src/types"
+    },
+    "license": "ISC"
+}
