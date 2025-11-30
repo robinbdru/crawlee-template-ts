@@ -2,6 +2,13 @@
 
 A (opinionated) production-ready template for building web crawlers with Crawlee and TypeScript. This template provides a structured foundation with built-in utilities, multiple crawler types, and easy-to-use scripts for rapid development.
 
+## Requirements
+
+-   **Node.js**: v18.0.0 or higher
+-   **npm**: v9.0.0 or higher (or yarn/pnpm equivalent)
+-   **Operating System**: macOS, Linux, or Windows with WSL2
+-   **Optional**: AWS CLI (for S3 upload functionality)
+
 ## Features
 
 -   **Multiple Crawler Templates**: Pre-configured HTTP, Cheerio, and Firefox (Playwright) crawlers
@@ -409,13 +416,33 @@ const crawler = new PlaywrightCrawler({
 
 ### Playwright Installation Issues
 
-If Firefox browser fails to install:
+Playwright (included in Crawlee) requires specific browser binaries to operate. Each version of Crawlee/Playwright supports specific browser versions.
+
+**Install Firefox browser:**
 
 ```bash
-# Manual installation
+# Using the built-in script
+npm run crawler:install-playwright
+
+# Or manually
 npx playwright install firefox
-npx playwright install-deps firefox
 ```
+
+**Install system dependencies (Linux/CI environments):**
+
+```bash
+# Install OS dependencies for Firefox
+npx playwright install-deps firefox
+
+# Or install browsers with dependencies in one command
+npx playwright install --with-deps firefox
+```
+
+**Common issues:**
+
+-   If you update Crawlee, you may need to reinstall browsers: `npx playwright install`
+-   Check Playwright version: `npx playwright --version`
+-   See [Playwright system requirements](https://playwright.dev/docs/browsers#install-system-dependencies) for supported operating systems
 
 ### Proxy Connection Errors
 
@@ -454,4 +481,5 @@ ISC
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
 # crawlee-template-ts
