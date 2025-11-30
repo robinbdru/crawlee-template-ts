@@ -4,3 +4,9 @@
 dist
 node_modules
 storage
+package-lock.json
+.env
+.env.local
+.env.*.local
+.vscode
+.DS_Store
