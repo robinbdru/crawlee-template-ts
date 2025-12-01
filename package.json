@@ -25,7 +25,7 @@
     },
     "aliases": {
         "#utils": "./src/utils",
-        "#actors": "./src/actors",
+        "#crawlers": "./src/crawlers",
         "#schemas": "./src/schemas",
         "#types": "./src/types"
     },

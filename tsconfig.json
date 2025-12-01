@@ -10,7 +10,7 @@
         "baseUrl": ".",
         "paths": {
             "#utils/*": ["./src/utils/*"],
-            "#actors/*": ["src/crawlers/*"],
+            "#crawlers/*": ["src/crawlers/*"],
             "#schemas/*": ["./src/schemas/*"],
             "#types/*": ["./src/types/*"]
         }
