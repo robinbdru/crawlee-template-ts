@@ -23,12 +23,21 @@ A (opinionated) production-ready template for building web crawlers with Crawlee
 ### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/robinbdru/crawlee-template-ts
+```
+
+```bash
+# Install dependencies
 npm install
 ```
 
 ### Make Scripts Executable
 
 ```bash
+# This makes all bash scripts executable
+# The scripts are located in the bash/ directory
+# Scripts are : createNewCrawler.sh, installPlaywrightFirefox.sh, upload.sh, etc.
 npm run scripts:allow
 ```
 
@@ -36,7 +45,7 @@ npm run scripts:allow
 
 ```bash
 # Create an HTTP crawler (fast, lightweight)
-npm run crawler:new -- --type=http --name=my-crawler
+npm run crawler:new -- --type=http --name=my-http-crawler
 
 # Create a Cheerio crawler (HTML parsing with jQuery-like syntax)
 npm run crawler:new -- --type=cheerio --name=my-cheerio-crawler
@@ -74,13 +83,10 @@ await firefoxCrawler.run();
 console.log("Reviews crawler finished!");
 
 // Or run in parallel
-// await Promise.all([
-//     httpCrawler.run(),
-//     firefoxCrawler.run()
-// ]);
+await Promise.all([httpCrawler.run(), firefoxCrawler.run()]);
 ```
 
-### Run the Crawler
+### Run the Crawler in main.ts
 
 ```bash
 npm run start
@@ -126,6 +132,10 @@ npm run start:prod         # Run production build
 npm run build              # Build TypeScript to JavaScript
 ```
 
+### Testing
+
+No test scripts are included by default, but you can add your own testing framework.
+
 ### Crawler Management
 
 ```bash
@@ -159,7 +169,7 @@ import { schema } from "#schemas/index.js";
 ```
 
 -   `#utils` → `./src/utils`
--   `#actors` → `./src/actors`
+-   `#crawlers` → `./src/crawlers`
 -   `#schemas` → `./src/schemas`
 -   `#types` → `./src/types`
 
@@ -173,9 +183,10 @@ Create a `.env` file in the root directory:
 # AWS S3 Configuration (optional)
 AWS_ACCESS_KEY_ID=your_access_key
 AWS_SECRET_ACCESS_KEY=your_secret_key
+S3_BUCKET=your-bucket-url
+# When selling data if applicable
 SELLER_ID=your_seller_id
 CONTRACT_ID=your_contract_id
-S3_BUCKET=your-bucket-name
 
 # Proxy Configuration (optional)
 PROXIES_PATH=proxies
